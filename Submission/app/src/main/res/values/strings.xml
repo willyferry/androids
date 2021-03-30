@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dicoding Courses</string>
+    <string name="about">About</string>
+    <string name="willy_ferry">Willy Ferry</string>
+    <string name="course_title">course title</string>
+    <string name="course_detail">course detail</string>
+    <string name="favorite">Tambah ke Favorite</string>
+    <string name="rating">Rating</string>
+    <string name="level">level</string>
+    <string name="timer">timer</string>
+    <string name="modul">modul</string>
+    <string name="willyferry001_gmail_com">willyferry001@gmail.com</string>
+</resources>

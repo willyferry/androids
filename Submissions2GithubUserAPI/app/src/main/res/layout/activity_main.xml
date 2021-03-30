@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_activitymain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/top"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:id="@+id/tv_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimsonpro_medium"
+                android:text="@string/welcome"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_setting"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/setting_language"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_main"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_main"
+                android:background="@color/top"
+                android:src="@drawable/ic_baseline_settings_24"
+                tools:srcCompat="@drawable/ic_baseline_settings_24" />
+
+            <TextView
+                android:id="@+id/tv_second"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/crimsonpro_medium"
+                android:text="@string/who_would_you_like_to_find"
+                android:textColor="@color/top_second_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imgbtn_setting"
+                app:layout_constraintStart_toStartOf="@+id/tv_main"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:layout_below="@id/cl_top"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight=".85"
+                android:fontFamily="@font/crimsonpro_regular"
+                android:background="@drawable/search_field_rounded"
+                android:hint="@string/search_username"
+                android:autofillHints="@string/search_username"
+                android:textColor="@color/black"
+                android:inputType="text"
+                android:padding="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/username" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_search"
+                android:layout_width="0dp"
+                android:layout_weight=".15"
+                android:layout_height="match_parent"
+                android:background="@drawable/search_image_rounded"
+                android:src="@drawable/ic_baseline_search_24"
+                android:text="@string/search_now" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_detailcard"
+            android:layout_below="@id/ll_top"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/detail_card_background"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/detail_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="12dp"
+                android:fontFamily="@font/crimsonpro_medium"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/result"
+                android:visibility="visible"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_users"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_row_user" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

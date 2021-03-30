@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Github Application</string>
+    <string name="username">Username</string>
+    <string name="location_detail">Location: %s</string>
+    <string name="company_detail">Company: %s</string>
+    <string name="repository_detail"><xliff:g id="application_homepage">Repository: %s</xliff:g></string>
+    <string name="follower_detail">Follower: %s</string>
+    <string name="following_detail">Following: %s</string>
+    <string name="search_username">Search Username</string>
+    <string name="search_now">Search Now!</string>
+    <string name="follower_tab">Follower Tab</string>
+    <string name="following_tab">Following Tab</string>
+    <string name="name">Name</string>
+    <string name="welcome">Welcome,</string>
+    <string name="who_would_you_like_to_find">Who would you like to find ?</string>
+    <string name="result">Search Result</string>
+    <string name="setting_language">Setting Language</string>
+    <string name="back_button">Back Button</string>
+</resources>
