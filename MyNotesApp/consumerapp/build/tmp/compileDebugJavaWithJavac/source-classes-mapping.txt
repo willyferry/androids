@@ -1,0 +1,8 @@
+com/example/consumerapp/databinding/ItemNoteBinding.java
+ com.example.consumerapp.databinding.ItemNoteBinding
+com/example/consumerapp/BuildConfig.java
+ com.example.consumerapp.BuildConfig
+com/example/consumerapp/databinding/ActivityMainBinding.java
+ com.example.consumerapp.databinding.ActivityMainBinding
+com/example/consumerapp/databinding/ActivityNoteAddUpdateBinding.java
+ com.example.consumerapp.databinding.ActivityNoteAddUpdateBinding
