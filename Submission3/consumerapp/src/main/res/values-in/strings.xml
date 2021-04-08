@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Aplikasi Github</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="location_detail">Lokasi: %s</string>
+    <string name="company_detail">Perusahaan: %s</string>
+    <string name="repository_detail"><xliff:g id="application_homepage">Repository: %s</xliff:g></string>
+    <string name="follower_detail">Pengikut: %s</string>
+    <string name="following_detail">Mengikuti: %s</string>
+    <string name="search_username">Cari nama pengguna</string>
+    <string name="search_now">Cari sekarang!</string>
+    <string name="follower_tab">Tab Pengikut</string>
+    <string name="following_tab">Tab Mengikuti</string>
+    <string name="name">Nama</string>
+    <string name="welcome">Selamat Datang,</string>
+    <string name="who_would_you_like_to_find">Siapakah yang ingin anda temukan ?</string>
+    <string name="result">Hasil Pencarian</string>
+    <string name="setting_language">Pengaturan Bahasa</string>
+    <string name="back_button">Tombol Kembali</string>
+    <string name="list_of_favorite_people">Daftar pengguna terfavorit</string>
+    <string name="user_favorite">Pengguna Favorit</string>
+    <string name="no_data_available">Tidak ada data</string>
+    <string name="setting_your_apps">Atur aplikasi kamu</string>
+    <string name="settings">Pengaturan</string>
+    <string name="setting_daily_remider">Atur pengingat harian jam 9.00 AM</string>
+    <string name="key_reminder">reminder</string>
+    <string name="lets_find_popular_user_on_github">Ayo cari user terpopuler di github</string>
+    <string name="add_to_favorite">Tambah ke Favorite</string>
+</resources>

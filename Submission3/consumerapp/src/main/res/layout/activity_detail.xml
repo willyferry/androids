@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sv_detail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/ll_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/top"
+            android:orientation="vertical"
+            tools:context=".ui.detail.DetailActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageButton
+                    android:id="@+id/imgbtn_back"
+                    android:contentDescription="@string/back_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_favorite"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/user_favorite"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgbtn_setting"
+                    app:layout_constraintEnd_toStartOf="@id/imgbtn_setting"
+                    app:layout_constraintTop_toTopOf="@+id/imgbtn_setting"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/baseline_favorite_24"
+                    tools:srcCompat="@drawable/baseline_favorite_24" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_setting"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@color/top"
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="@string/setting_language"
+                    android:src="@drawable/ic_baseline_settings_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgbtn_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imgbtn_back"
+                    tools:srcCompat="@drawable/ic_baseline_settings_24" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/teal_700"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgbtn_back"
+                    app:layout_constraintVertical_bias="0"
+                    tools:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/top_primary_text"
+                    android:fontFamily="@font/crimsonpro_medium"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/user_avatar"
+                    app:layout_constraintStart_toStartOf="@+id/user_avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+                    tools:text="@string/name" />
+
+
+                <TextView
+                    android:id="@+id/user_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="@+id/user_name"
+                    app:layout_constraintStart_toStartOf="@+id/user_name"
+                    app:layout_constraintTop_toBottomOf="@+id/user_name"
+                    tools:text="@string/username" />
+
+                <TextView
+                    android:id="@+id/user_repository_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintEnd_toStartOf="@+id/user_following"
+                    app:layout_constraintStart_toEndOf="@+id/user_follower"
+                    app:layout_constraintTop_toBottomOf="@+id/user_username"
+                    tools:text="@string/repository_detail" />
+
+                <TextView
+                    android:id="@+id/user_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/user_repository_detail"
+                    app:layout_constraintTop_toTopOf="@+id/user_repository_detail"
+                    tools:text="@string/following_detail" />
+
+                <TextView
+                    android:id="@+id/user_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toStartOf="@+id/user_repository_detail"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/user_repository_detail"
+                    tools:ignore="MissingConstraints"
+                    tools:text="@string/follower_detail" />
+
+                <TextView
+                    android:id="@+id/user_company_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintEnd_toEndOf="@+id/user_repository_detail"
+                    app:layout_constraintStart_toStartOf="@+id/user_repository_detail"
+                    app:layout_constraintTop_toBottomOf="@+id/user_repository_detail"
+                    tools:text="@string/company_detail" />
+
+                <TextView
+                    android:id="@+id/user_location_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/crimsonpro_regular"
+                    android:textColor="@color/top_second_text"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintEnd_toEndOf="@+id/user_company_detail"
+                    app:layout_constraintStart_toStartOf="@+id/user_company_detail"
+                    app:layout_constraintTop_toBottomOf="@+id/user_company_detail"
+                    tools:text="@string/location_detail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/detail_card_background"
+                app:tabTextColor="@color/primary_text" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primary_background" />
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:foregroundGravity="bottom"
+            android:contentDescription="@string/add_to_favorite"
+            android:background="@drawable/detail_card_background"
+            app:fabSize="normal"
+            app:layout_anchor="@id/ll_detail"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</ScrollView>
