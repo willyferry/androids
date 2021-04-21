@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="home">Home</string>
+    <string name="tv_shows">Tv Shows</string>
+
+    <string name="title">Title</string>
+    <string name="genre">genre</string>
+    <string name="description">Description</string>
+    <string name="share_text">Segera tonton film terbaru %s di aplikasi ini</string>
+    <string name="rating">Rating</string>
+    <string name="score">Score</string>
+    <string name="duration">Duration</string>
+    <string name="release">Release</string>
+</resources>
