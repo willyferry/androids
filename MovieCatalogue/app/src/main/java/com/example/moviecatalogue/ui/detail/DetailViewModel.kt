@@ -1,29 +1,25 @@
 package com.example.moviecatalogue.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.moviecatalogue.data.MoviesEntity
-import com.example.moviecatalogue.utils.DataDummy
+import com.example.moviecatalogue.data.MovieCatalogueRepository
+import com.example.moviecatalogue.data.source.local.entity.MoviesEntity
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
 
-    private lateinit var movieId: String
+    private var movieId: Int = 0
+    private var movieType: String = "Movie"
 
-    fun selectedMovie(movieId: String) {
+    fun selectedMovie(movieId: Int) {
         this.movieId = movieId
     }
 
-    fun getMovie(): MoviesEntity {
-        lateinit var movie: MoviesEntity
-
-        val moviesEntities = DataDummy.generateDummyData()
-
-        for (movieEntity in moviesEntities) {
-            if (movieEntity.id == movieId) {
-                movie = movieEntity
-            }
-        }
-
-        return movie
+    fun selectedType(movieType: String) {
+        if(movieType == "Tv Shows") this.movieType = "Show"
     }
+
+    fun getMovie(): LiveData<MoviesEntity> = movieCatalogueRepository.getDetailMovie(movieId)
+
+    fun getShow(): LiveData<MoviesEntity> = movieCatalogueRepository.getDetailShow(movieId)
 
 }

@@ -1,20 +1,12 @@
 package com.example.moviecatalogue.ui.tv.movies
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.moviecatalogue.data.MoviesEntity
-import com.example.moviecatalogue.utils.DataDummy
+import com.example.moviecatalogue.data.MovieCatalogueRepository
+import com.example.moviecatalogue.data.source.local.entity.MoviesEntity
 
-class MoviesViewModel : ViewModel() {
+class MoviesViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
 
-    private var listMovies = ArrayList<MoviesEntity>()
-
-    fun getMovies() : List<MoviesEntity> {
-        for (movies in DataDummy.generateDummyData()) {
-            if (movies.type == "Movies") {
-                listMovies.add(movies)
-            }
-        }
-        return listMovies
-    }
+    fun getMovies() : LiveData<List<MoviesEntity>> = movieCatalogueRepository.getMovies()
 
 }

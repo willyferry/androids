@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.moviecatalogue.R
-import com.example.moviecatalogue.data.MoviesEntity
+import com.example.moviecatalogue.data.source.local.entity.MoviesEntity
 import com.example.moviecatalogue.databinding.ItemsCardBinding
 import com.example.moviecatalogue.ui.detail.DetailActivity
 
@@ -43,6 +43,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_DETAIL, tvShow.id)
+                    intent.putExtra(DetailActivity.EXTRA_TYPE, tvShow.type)
                     itemView.context.startActivity(intent)
                 }
 

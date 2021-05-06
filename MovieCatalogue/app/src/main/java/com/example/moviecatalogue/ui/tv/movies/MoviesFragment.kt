@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviecatalogue.databinding.FragmentMoviesBinding
+import com.example.moviecatalogue.viewmodel.ViewModelFactory
 
 class MoviesFragment : Fragment() {
 
@@ -20,11 +21,17 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
-            val listMovies = viewModel.getMovies()
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[MoviesViewModel::class.java]
 
             val moviesAdapter = MoviesAdapter()
-            moviesAdapter.setMovies(listMovies)
+            fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
+
+            viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
+                fragmentMoviesBinding.progressBar.visibility = View.GONE
+                moviesAdapter.setMovies(movies)
+                moviesAdapter.notifyDataSetChanged()
+            })
 
             with (fragmentMoviesBinding.rvMovies) {
                 layoutManager = LinearLayoutManager(context)

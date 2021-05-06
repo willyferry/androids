@@ -1,7 +1,7 @@
-package com.example.moviecatalogue.data
+package com.example.moviecatalogue.data.source.remote.response
 
-data class MoviesEntity (
-    var id: String,
+data class MoviesResponse (
+    var id: Int,
     var title: String,
     var description: String,
     var genre: String,
@@ -10,5 +10,5 @@ data class MoviesEntity (
     var duration: String,
     var score: String,
     var type: String,
-    var image: Int,
+    var image: String,
 )
