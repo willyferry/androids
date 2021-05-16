@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.example.moviecatalogue.data.MovieCatalogueRepository
 import com.example.moviecatalogue.data.source.local.entity.MoviesEntity
 import com.example.moviecatalogue.utils.DataDummy
+import com.example.moviecatalogue.vo.Resource
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Before
@@ -31,7 +32,7 @@ class DetailViewModelTest {
     private lateinit var movieCatalogueRepository: MovieCatalogueRepository
 
     @Mock
-    private lateinit var movieObserver: Observer<MoviesEntity>
+    private lateinit var movieObserver: Observer<Resource<MoviesEntity>>
 
     @Before
     fun setUp() {
@@ -41,25 +42,26 @@ class DetailViewModelTest {
 
     @Test
     fun getMovie() {
-        val movie = MutableLiveData<MoviesEntity>()
-        movie.value = dummyMovie
+        val dummyMovieEntity = Resource.success(dummyMovie)
+        val movie = MutableLiveData<Resource<MoviesEntity>>()
+        movie.value = dummyMovieEntity
 
         `when`(movieCatalogueRepository.getDetailMovie(movieId)).thenReturn(movie)
         viewModel.selectedMovie(dummyMovie.id)
         val movieEntity = viewModel.getMovie().value
         verify(movieCatalogueRepository).getDetailMovie(movieId)
         assertNotNull(movieEntity)
-        assertEquals(dummyMovie.id, movieEntity?.id)
-        assertEquals(dummyMovie.title, movieEntity?.title)
-        assertEquals(dummyMovie.description, movieEntity?.description)
-        assertEquals(dummyMovie.genre, movieEntity?.genre)
-        assertEquals(dummyMovie.rating, movieEntity?.rating)
-        assertEquals(dummyMovie.duration, movieEntity?.duration)
-        assertEquals(dummyMovie.score, movieEntity?.score)
-        assertEquals(dummyMovie.release, movieEntity?.release)
-        assertEquals(dummyMovie.image, movieEntity?.image)
+        assertEquals(dummyMovie.id, movieEntity?.data?.id)
+        assertEquals(dummyMovie.title, movieEntity?.data?.title)
+        assertEquals(dummyMovie.description, movieEntity?.data?.description)
+        assertEquals(dummyMovie.genre, movieEntity?.data?.genre)
+        assertEquals(dummyMovie.rating, movieEntity?.data?.rating)
+        assertEquals(dummyMovie.duration, movieEntity?.data?.duration)
+        assertEquals(dummyMovie.score, movieEntity?.data?.score)
+        assertEquals(dummyMovie.release, movieEntity?.data?.release)
+        assertEquals(dummyMovie.image, movieEntity?.data?.image)
 
         viewModel.getMovie().observeForever(movieObserver)
-        verify(movieObserver).onChanged(dummyMovie)
+        verify(movieObserver).onChanged(dummyMovieEntity)
     }
 }

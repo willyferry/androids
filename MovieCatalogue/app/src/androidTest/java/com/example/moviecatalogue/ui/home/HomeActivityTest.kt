@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -46,19 +47,12 @@ class HomeActivityTest {
     fun loadDetail() {
         onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_item_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_title)).check(matches(withText(listMovies[0].title)))
         onView(withId(R.id.tv_item_description)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_description)).check(matches(withText(listMovies[0].description)))
         onView(withId(R.id.tv_item_duration)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_duration)).check(matches(withText(listMovies[0].duration)))
         onView(withId(R.id.tv_item_genre)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_genre)).check(matches(withText(listMovies[0].genre)))
         onView(withId(R.id.tv_item_rating)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_rating)).check(matches(withText(listMovies[0].rating)))
         onView(withId(R.id.tv_item_release)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_release)).check(matches(withText(listMovies[0].release)))
         onView(withId(R.id.tv_item_score)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_score)).check(matches(withText(listMovies[0].score)))
     }
 
     @Test
@@ -73,19 +67,51 @@ class HomeActivityTest {
         onView(withText("TV SHOWS")).perform(click())
         onView(withId(R.id.rv_tv_shows)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_item_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_title)).check(matches(withText(listTvShow[0].title)))
         onView(withId(R.id.tv_item_description)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_description)).check(matches(withText(listTvShow[0].description)))
         onView(withId(R.id.tv_item_duration)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_duration)).check(matches(withText(listTvShow[0].duration)))
         onView(withId(R.id.tv_item_genre)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_genre)).check(matches(withText(listTvShow[0].genre)))
         onView(withId(R.id.tv_item_rating)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_rating)).check(matches(withText(listTvShow[0].rating)))
         onView(withId(R.id.tv_item_release)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_release)).check(matches(withText(listTvShow[0].release)))
         onView(withId(R.id.tv_item_score)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_item_score)).check(matches(withText(listTvShow[0].score)))
     }
 
+    @Test
+    fun loadFavoriteMovies() {
+        onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.favorite_button)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_item_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_score)).check(matches(isDisplayed()))
+        onView(withId(R.id.favorite_button)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+    }
+
+    @Test
+    fun loadFavoriteTvShows() {
+        onView(withText("TV SHOWS")).perform(click())
+        onView(withId(R.id.rv_tv_shows)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.favorite_button)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withText("TV SHOWS")).perform(click())
+        onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_shows)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_item_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_item_score)).check(matches(isDisplayed()))
+        onView(withId(R.id.favorite_button)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+    }
 }

@@ -12,4 +12,9 @@
     <string name="score">Score</string>
     <string name="duration">Duration</string>
     <string name="release">Release</string>
+    <string name="menu_favorite">Menu Favorite</string>
+    <string name="add_to_favorite">Add to Favorite</string>
+    <string name="remove_from_favorite">Remove from Favorite</string>
+    <string name="favorite_list">Favorite List</string>
+    <string name="cover_movie">Cover Movie</string>
 </resources>

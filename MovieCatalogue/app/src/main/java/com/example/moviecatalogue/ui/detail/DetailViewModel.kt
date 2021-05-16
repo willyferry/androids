@@ -4,22 +4,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviecatalogue.data.MovieCatalogueRepository
 import com.example.moviecatalogue.data.source.local.entity.MoviesEntity
+import com.example.moviecatalogue.vo.Resource
 
 class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
 
-    private var movieId: Int = 0
-    private var movieType: String = "Movie"
+    var id: Int = 0
 
     fun selectedMovie(movieId: Int) {
-        this.movieId = movieId
+        this.id = movieId
     }
 
-    fun selectedType(movieType: String) {
-        if(movieType == "Tv Shows") this.movieType = "Show"
+    fun getMovie(): LiveData<Resource<MoviesEntity>> {
+        return movieCatalogueRepository.getDetailMovie(id)
     }
 
-    fun getMovie(): LiveData<MoviesEntity> = movieCatalogueRepository.getDetailMovie(movieId)
+    fun getShow(): LiveData<Resource<MoviesEntity>> {
+        return movieCatalogueRepository.getDetailShow(id)
+    }
 
-    fun getShow(): LiveData<MoviesEntity> = movieCatalogueRepository.getDetailShow(movieId)
+    fun setFavorite(movieOrShow: MoviesEntity) {
+        val newState = !movieOrShow.favorite
+        movieCatalogueRepository.setFavorite(movieOrShow, newState)
+    }
 
 }

@@ -54,6 +54,7 @@ class JsonHelper(private val context: Context) {
                     duration,
                     score,
                     type,
+                    false,
                     "$base_image_url$poster_path"
                 )
                 list.add(movieResponse)
@@ -65,7 +66,7 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
-    fun loadDetailMovie(movieId: Int): MoviesResponse? {
+    fun loadDetailMovie(movieId: Int): MoviesResponse {
         val fileName = String.format("Movie_%s.json", movieId)
         var movieResponse: MoviesResponse? = null
         try {
@@ -96,6 +97,7 @@ class JsonHelper(private val context: Context) {
                     duration,
                     score,
                     type,
+                    false,
                     "$base_image_url$poster_path"
                 )
                 movieResponse = movie
@@ -103,7 +105,7 @@ class JsonHelper(private val context: Context) {
         } catch (e: JSONException) {
             e.printStackTrace()
         }
-        return movieResponse
+        return movieResponse as MoviesResponse
     }
 
     fun loadShows(): List<MoviesResponse> {
@@ -136,6 +138,7 @@ class JsonHelper(private val context: Context) {
                     duration,
                     score,
                     type,
+                    false,
                     "$base_image_url$poster_path"
                 )
 
@@ -148,7 +151,7 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
-    fun loadDetailShow(showId: Int): MoviesResponse? {
+    fun loadDetailShow(showId: Int): MoviesResponse {
         val fileName = String.format("Show_%s.json", showId)
         var showResponse: MoviesResponse? = null
         try {
@@ -177,6 +180,7 @@ class JsonHelper(private val context: Context) {
                     duration,
                     score,
                     type,
+                    false,
                     "$base_image_url$poster_path"
                 )
                 showResponse = show
@@ -184,7 +188,7 @@ class JsonHelper(private val context: Context) {
         } catch (e: JSONException) {
             e.printStackTrace()
         }
-        return showResponse
+        return showResponse as MoviesResponse
     }
 
 }

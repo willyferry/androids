@@ -10,5 +10,6 @@ data class MoviesResponse (
     var duration: String,
     var score: String,
     var type: String,
+    var favorite: Boolean = false,
     var image: String,
 )

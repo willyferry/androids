@@ -12,10 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
         <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:parentActivityName=".ui.home.HomeActivity"
+            />
+        <activity
             android:name=".ui.detail.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:theme="@style/Theme.MovieCatalogue.NoActionBar"
-            android:parentActivityName=".ui.home.HomeActivity" />
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.MovieCatalogue.NoActionBar" />
         <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
